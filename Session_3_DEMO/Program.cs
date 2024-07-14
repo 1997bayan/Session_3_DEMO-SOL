@@ -37,6 +37,26 @@ namespace Session_3_DEMO
             refBase.MyFun01 ();// I am Base [Parent] // The hidden method MyFun01 is called from the TypeA implementation when accessed through a TypeA reference.
             refBase.MyFun02();// TypeB : A = 120 , B = 3 //The overridden method MyFun02 is called from the TypeB implementation.
 
+            #endregion
+
+            #region Not Binding
+            //Ref from child => Point to =>Object from parent
+            //TypeB ChildRef = (TypeB)new TypeA(3); //This is not binding this is explicit casting
+            //Unsafe casting
+
+           // TypeA typeAa = new TypeA  (3);
+           // TypeB typeBb = (TypeB)typeAa; //explicit casting // (TypeB) casting operator this is a function
+
+           // Console.WriteLine(typeBb.A ); ///
+           // Console.WriteLine(typeBb.B);  /// ==> invalid
+
+            TypeA typeAa = new TypeB(10,299);
+            TypeB typeBb = (TypeB) typeAa;
+             Console.WriteLine(typeBb.A ); ///valid 
+             Console.WriteLine(typeBb.B); 
+
+
+
 
 
             #endregion

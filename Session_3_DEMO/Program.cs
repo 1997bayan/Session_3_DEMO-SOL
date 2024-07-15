@@ -89,10 +89,48 @@ namespace Session_3_DEMO
             EmployeeProcess(partTimeEmp);
 
 
-           // partTimeEmp.Id = 2;
+            // partTimeEmp.Id = 2;
 
             #endregion
+            #region Binding EX02
 
+            //Biinding: ref parent = object from Grand Child
+            //TypeA typeA = new TypeC(1,2,3);
+
+            //typeA.A = 12; // valid beacuse the ref typeA point on typeA only 
+            ////typeA.B = 11; // invalid beacuse ref typeA dont point on B beacuse it dont exist in typeA
+            ////typeA.C =123l; // invalid beacuse ref typeA dont point on C beacuse it dont exist in typeA
+
+            //typeA.MyFun01(); //new => static binding => refernce
+
+            //typeA.MyFun02();//overrid => dynamic binding => object
+
+            TypeA typeA;
+            TypeB typeB;
+            TypeC typeC;
+
+            typeA = new Type_E(1,2,3,4,5);        //INDIRECT PARENT 
+            typeB = new Type_E(1, 2, 3, 4, 5);   //INDIRECT PARENT 
+            typeC = new Type_E(1, 2, 3, 4, 5);  //INDIRECT PARENT 
+
+            typeA.MyFun02(); // override go to the last override
+            typeB.MyFun02(); // override go to the last override
+            typeC.MyFun02();// override go to the last override
+
+            TypeD typeD = new Type_E(2,23,4,5,6);
+            typeD.MyFun02();
+
+
+
+
+
+
+
+
+
+
+
+            #endregion
 
         }
     }
